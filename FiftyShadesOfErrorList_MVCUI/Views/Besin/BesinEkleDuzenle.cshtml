@@ -1,0 +1,121 @@
+﻿@model FiftyShadesOfErrorList_DATA.Entity.Besin
+
+@{
+	bool isCreate = Model.Id == default;
+}
+
+@if (isCreate)
+{
+	<h1 class="mt-3 text-center">Besin Ekle</h1>
+}
+else
+{
+	<h1 class="mt-3 text-center">@Model.Ad Düzenle</h1>
+}
+
+<hr />
+
+<div class="container form-container">
+	<form asp-action="BesinEkleDuzenle">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label asp-for="Ad" class="control-label bold-label"></label>
+					<input asp-for="Ad" class="form-control" />
+					<span asp-validation-for="Ad" class="text-danger"></span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label asp-for="Miktar" class="control-label bold-label"></label>
+					<input asp-for="Miktar" class="form-control" />
+					<span asp-validation-for="Miktar" class="text-danger"></span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label asp-for="Birim" class="control-label bold-label"></label>
+					<input asp-for="Birim" class="form-control" />
+					<span asp-validation-for="Birim" class="text-danger"></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label asp-for="Kalori" class="control-label bold-label"></label>
+					<input asp-for="Kalori" class="form-control" />
+					<span asp-validation-for="Kalori" class="text-danger"></span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label asp-for="Porsiyon" class="control-label bold-label"></label>
+					<input asp-for="Porsiyon" class="form-control" />
+					<span asp-validation-for="Porsiyon" class="text-danger"></span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label asp-for="Karbonhidrat" class="control-label bold-label"></label>
+					<input asp-for="Karbonhidrat" class="form-control" />
+					<span asp-validation-for="Karbonhidrat" class="text-danger"></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label asp-for="Protein" class="control-label bold-label"></label>
+					<input asp-for="Protein" class="form-control" />
+					<span asp-validation-for="Protein" class="text-danger"></span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label asp-for="Yag" class="control-label bold-label"></label>
+					<input asp-for="Yag" class="form-control" />
+					<span asp-validation-for="Yag" class="text-danger"></span>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label class="control-label bold-label" for="KategoriId">Kategori Seçin</label>
+					<select asp-for="KategoriId" class="form-control" id="KategoriId">
+						<option value="">Seçiniz</option>
+						@foreach (var kategori in ViewBag.kategoriList as List<SelectListItem>)
+						{
+							<option value="@kategori.Value">@kategori.Text</option>
+						}
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="mt-3 d-flex justify-content-between">
+			<div class="form-group">
+				@if (isCreate)
+				{
+					<input type="submit" value="Kaydet" class="btn btn-primary" asp-action="BesinEkleDuzenle" />
+				}
+				else
+				{
+					<input type="submit" value="Güncelle" class="btn btn-warning" asp-action="BesinEkleDuzenle" />
+				}
+
+			</div>
+
+			<a asp-action="Index" class="btn btn-secondary d-inline-flex">Listeye Dön</a>
+		</div>
+	</form>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

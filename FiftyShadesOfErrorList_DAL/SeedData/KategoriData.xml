@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Kategoriler>
+	<Kategori KategoriID="1">
+		<KategoriAd>Tahil Urunleri</KategoriAd>
+	</Kategori>
+	<Kategori KategoriID="2">
+		<KategoriAd>Sut Urunleri</KategoriAd>
+	</Kategori>
+	<Kategori KategoriID="3">
+		<KategoriAd>Meyveler</KategoriAd>
+	</Kategori>
+	<Kategori KategoriID="4">
+		<KategoriAd>Sebzeler</KategoriAd>
+	</Kategori>
+	<Kategori KategoriID="5">
+		<KategoriAd>Atistirmaliklar</KategoriAd>
+	</Kategori>
+	<Kategori KategoriID="6">
+		<KategoriAd>Yaglar</KategoriAd>
+	</Kategori>
+	<Kategori KategoriID="7">
+		<KategoriAd>Et Urunleri</KategoriAd>
+	</Kategori>
+	<Kategori KategoriID="8">
+		<KategoriAd>Kumes Hayvanlari</KategoriAd>
+	</Kategori>
+	<Kategori KategoriID="9">
+		<KategoriAd>Deniz Urunleri</KategoriAd>
+	</Kategori>
+	<Kategori KategoriID="10">
+		<KategoriAd>Corbalar</KategoriAd>
+	</Kategori>
+	<Kategori KategoriID="11">
+		<KategoriAd>Salatalar</KategoriAd>
+	</Kategori>
+	<Kategori KategoriID="12">
+		<KategoriAd>Sebze Yemekleri</KategoriAd>
+	</Kategori>
+	<Kategori KategoriID="13">
+		<KategoriAd>Pose Sebzeler</KategoriAd>
+	</Kategori>
+	<Kategori KategoriID="14">
+		<KategoriAd>Kahvalti</KategoriAd>
+	</Kategori>
+	<Kategori KategoriID="15">
+		<KategoriAd>Baklagiller</KategoriAd>
+	</Kategori>
+</Kategoriler>

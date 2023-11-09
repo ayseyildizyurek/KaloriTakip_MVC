@@ -1,0 +1,83 @@
+﻿@model IEnumerable<FiftyShadesOfErrorList_DATA.Entity.Besin>
+
+<table id="dataTable" class=" table table-hover table-bordered">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Ad)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Miktar)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Kalori)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Porsiyon)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Karbonhidrat)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Protein)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Yag)
+			</th>
+			<th>Edit</th>
+			<th>Detail</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Ad)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Miktar) - @Html.DisplayFor(modelItem => item.Birim)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Kalori)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Porsiyon)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Karbonhidrat)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Protein)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Yag)
+				</td>
+				<td>
+					<a asp-action="BesinEkleDuzenle" asp-route-id="@item.Id" class="btn btn-warning"><i class="fa-regular fa-pen-to-square fa-xs"></i> Güncelle</a>
+				</td>
+				<td>
+					<a asp-action="Detay" asp-route-id="@item.Id" class="btn btn-secondary"><i class="fa-solid fa-info fa-xs"></i> Detay</a>
+				</td>
+				<td>
+					<a asp-action="Sil" asp-route-id="@item.Id" class="btn btn-danger"><i class="fa-regular fa-trash-can fa-xs"></i> Sil</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<script>
+	$(document).ready(function () {
+			$('#dataTable').DataTable({
+				"paging": true,
+				"lengthChange": false,
+				"ordering": true,
+				"info": true,
+				"autoWidth": false,
+					"searching": false,
+		});
+	});
+
+</script>

@@ -1,0 +1,5 @@
+﻿using System.Net.Mail;				Metotlar klasında kullanıldı
+Mail aktivasyon kodu
+Resim ekleme Formda yapılacak
+Kullanıcılar tablosunda kolonlar düzeltilecek
+Yöneticiler tablosunda kolonlar düzeltilecek
