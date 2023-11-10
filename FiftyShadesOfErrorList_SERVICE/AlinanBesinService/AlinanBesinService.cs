@@ -27,11 +27,18 @@ namespace FiftyShadesOfErrorList_SERVICE.AlinanBesinService
 
 
         public List<AlinanBesin> KosulaGoreGetir(Ogun ogun,int? id)
-
         {
 
             BaseDAL<AlinanBesin> baseDAL = new BaseDAL<AlinanBesin>();
             return baseDAL.KosulaGoreGetir(x=>x.Ogun==ogun&&x.KullaniciId==id);
+
+        }
+
+        public List<AlinanBesin> KosulaGoreGetir(int? id)
+        {
+
+            BaseDAL<AlinanBesin> baseDAL = new BaseDAL<AlinanBesin>();
+            return baseDAL.KosulaGoreGetir(x=>x.KullaniciId == id);
 
         }
 

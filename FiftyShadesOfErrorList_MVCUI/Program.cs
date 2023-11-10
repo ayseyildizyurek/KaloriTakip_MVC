@@ -28,7 +28,7 @@ namespace FiftyShadesOfErrorList_MVCUI
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Besin}/{action=Index}/{id?}");
+                pattern: "{controller=User}/{action=Login}/{id?}");
 
             app.Run();
         }

@@ -1,0 +1,73 @@
+﻿@using FiftyShadesOfErrorList_MVCUI.Models.ViewModels;
+@model AlinanBesinView
+
+<div class="form-container">
+<table id="dataTable" class=" table table-hover table-bordered">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Besin.Ad)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.AlinanMiktar)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Birim)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.AlinanKalori)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Ogun)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.KayitTarihi)
+			</th>
+			<th>İşlemler</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.AlinanBesinler)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Besin.Ad)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.AlinanMiktar)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Birim)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.AlinanKalori)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Ogun)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.KayitTarihi)
+				</td>
+				<td>
+					<a asp-action="BesinEkleDuzenle" asp-route-id="@item.Id" class="btn btn-warning" data-toggle="tooltip" title="Düzenle"><i class="fa-solid fa-pen-to-square"></i></a>
+					<a asp-action="Detay" asp-route-id="@item.Id" class="btn btn-secondary" data-toggle="tooltip" title="Detay Gör"><i class="fa-solid fa-circle-info"></i></a>
+					<a asp-action="Sil" asp-route-id="@item.Id" class="btn btn-danger" data-toggle="tooltip" title="Sil"><i class="fa-solid fa-trash-can"></i></a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+</div>
+<script>
+	$(document).ready(function () {
+		$('#dataTable').DataTable({
+			"paging": true,
+			"lengthChange": false,
+			"ordering": true,
+			"info": true,
+			"autoWidth": false,
+			"searching": false,
+		});
+	});
+
+</script>

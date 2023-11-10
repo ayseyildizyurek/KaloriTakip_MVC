@@ -28,63 +28,63 @@ namespace FiftyShadesOfErrorList_DAL.Context
             optionsBuilder.UseSqlServer("Data Source=DESKTOP-8JB5AHL\\SQLEXPRESS;Initial Catalog=DiyetProje;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
             optionsBuilder.UseLazyLoadingProxies();
         }
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    FileStream stream = File.Open(AppDomain.CurrentDomain.BaseDirectory + "\\BesinData.xml", FileMode.Open);
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            FileStream stream = File.Open(AppDomain.CurrentDomain.BaseDirectory + "\\BesinData.xml", FileMode.Open);
 
-        //    XDocument besinler = XDocument.Load(stream); 
+            XDocument besinler = XDocument.Load(stream);
 
 
-        //    var besin = besinler.Element("Besinler").Elements("Besin");
-        //    foreach (var item in besin)
-        //    {
-        //        modelBuilder.Entity<Besin>().HasData(new Besin
-        //        {
-        //            Id = Convert.ToInt32(item.Attribute("BesinID").Value),
-        //            Ad = item.Element("BesinAdi").Value,
-        //            Miktar = Convert.ToDouble(item.Element("Miktar").Value),
-        //            Birim = item.Element("Birim").Value,
-        //            Porsiyon = item.Element("Porsiyon").Value,
-        //            Karbonhidrat = Convert.ToDouble(item.Element("Karbonhidrat").Value),
-        //            Protein = Convert.ToDouble(item.Element("Protein").Value),
-        //            Yag = Convert.ToDouble(item.Element("Yag").Value),
-        //            Kalori = Convert.ToDouble(item.Element("Kalori").Value),
-        //            KategoriId = Convert.ToInt32(item.Element("KategoriID").Value)
-        //        });
-        //    }
+            var besin = besinler.Element("Besinler").Elements("Besin");
+            foreach (var item in besin)
+            {
+                modelBuilder.Entity<Besin>().HasData(new Besin
+                {
+                    Id = Convert.ToInt32(item.Attribute("BesinID").Value),
+                    Ad = item.Element("BesinAdi").Value,
+                    Miktar = Convert.ToDouble(item.Element("Miktar").Value),
+                    Birim = item.Element("Birim").Value,
+                    Porsiyon = item.Element("Porsiyon").Value,
+                    Karbonhidrat = Convert.ToDouble(item.Element("Karbonhidrat").Value),
+                    Protein = Convert.ToDouble(item.Element("Protein").Value),
+                    Yag = Convert.ToDouble(item.Element("Yag").Value),
+                    Kalori = Convert.ToDouble(item.Element("Kalori").Value),
+                    KategoriId = Convert.ToInt32(item.Element("KategoriID").Value)
+                });
+            }
 
-        //    FileStream stream2 = File.Open(AppDomain.CurrentDomain.BaseDirectory + "\\KategoriData.xml", FileMode.Open);
-        //    XDocument kategoriler = XDocument.Load(stream2); 
+            FileStream stream2 = File.Open(AppDomain.CurrentDomain.BaseDirectory + "\\KategoriData.xml", FileMode.Open);
+            XDocument kategoriler = XDocument.Load(stream2);
 
-        //    var kategori = kategoriler.Element("Kategoriler").Elements("Kategori");
+            var kategori = kategoriler.Element("Kategoriler").Elements("Kategori");
 
-        //    foreach (var item in kategori)
-        //    {
-        //        modelBuilder.Entity<Kategori>().HasData(new Kategori
-        //        {
-        //            Id = Convert.ToInt32(item.Attribute("KategoriID").Value),
-        //            Ad = item.Element("KategoriAd").Value,
-        //        });
-        //    }
+            foreach (var item in kategori)
+            {
+                modelBuilder.Entity<Kategori>().HasData(new Kategori
+                {
+                    Id = Convert.ToInt32(item.Attribute("KategoriID").Value),
+                    Ad = item.Element("KategoriAd").Value,
+                });
+            }
 
-        //    modelBuilder.Entity<Admin>().HasData(new Admin
-        //    {
-        //        Id = 1,
-        //        Ad = "admin",
-        //        Soyad = "admin",
-        //        Cinsiyet=Cinsiyet.Kadin,
-        //        DogumTarihi= new DateTime(1995, 10, 2,0,0,0),
-        //        KayitTarihi=new DateTime(2023,10,2,0,0,0),
-        //        Email = "admin@admin.com",
-        //        Sifre = "123"
-        //    });
-        //    modelBuilder.ApplyConfiguration(new AdminConfig());
-        //    modelBuilder.ApplyConfiguration(new AlinanBesinConfig());
-        //    modelBuilder.ApplyConfiguration(new BesinConfig());
-        //    modelBuilder.ApplyConfiguration(new IstekSikayetConfig());
-        //    modelBuilder.ApplyConfiguration(new KategoriConfig());
-        //    modelBuilder.ApplyConfiguration(new KullaniciConfig());
-        //    modelBuilder.ApplyConfiguration(new KullaniciGecmisDetayConfig());
-        //}
+            modelBuilder.Entity<Admin>().HasData(new Admin
+            {
+                Id = 1,
+                Ad = "admin",
+                Soyad = "admin",
+                Cinsiyet = Cinsiyet.Kadin,
+                DogumTarihi = new DateTime(1995, 10, 2, 0, 0, 0),
+                KayitTarihi = new DateTime(2023, 10, 2, 0, 0, 0),
+                Email = "admin@admin.com",
+                Sifre = "123"
+            });
+            modelBuilder.ApplyConfiguration(new AdminConfig());
+            modelBuilder.ApplyConfiguration(new AlinanBesinConfig());
+            modelBuilder.ApplyConfiguration(new BesinConfig());
+            modelBuilder.ApplyConfiguration(new IstekSikayetConfig());
+            modelBuilder.ApplyConfiguration(new KategoriConfig());
+            modelBuilder.ApplyConfiguration(new KullaniciConfig());
+            modelBuilder.ApplyConfiguration(new KullaniciGecmisDetayConfig());
+        }
     }
 }

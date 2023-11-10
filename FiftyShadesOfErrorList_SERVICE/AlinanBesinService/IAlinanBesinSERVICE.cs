@@ -12,5 +12,6 @@ namespace FiftyShadesOfErrorList_SERVICE.AlinanBesinService
         AlinanBesin IdyeGoreGetir(int id);
         List<AlinanBesin> TumunuGetir();
         List<AlinanBesin> KosulaGoreGetir(Ogun ogun, int? id);
+        List<AlinanBesin> KosulaGoreGetir(int? id);
     }
 }

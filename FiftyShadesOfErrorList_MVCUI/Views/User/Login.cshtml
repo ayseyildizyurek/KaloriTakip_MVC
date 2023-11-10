@@ -1,0 +1,60 @@
+﻿@model FiftyShadesOfErrorList_MVCUI.Models.ViewModels.UserLoginView
+
+@{
+	Layout =null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>DietMate - Giriş</title>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+	<link rel="stylesheet" href="~/Tema/plugins/fontawesome-free/css/all.min.css">
+	<link rel="stylesheet" href="~/Tema/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+	<link rel="stylesheet" href="~/Tema/dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition login-page">
+	<div class="login-box">
+		<div class="card card-outline card-primary">
+			<div class="card-header text-center">
+				<a href="#" class="h1"><b>Diet</b> Mate</a>
+			</div>
+			<div class="card-body">
+				<p class="login-box-msg">Lütfen Giris Yapın</p>
+
+				<form asp-action="Login">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<div class="input-group mb-3">
+						<input asp-for="Email" class="form-control" placeholder="Email" />
+						<span asp-validation-for="Email" class="text-danger"></span>
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-envelope"></span>
+							</div>
+						</div>
+					</div>
+					<div class="input-group mb-3">
+						<input asp-for="Password" class="form-control" placeholder="Şifre" />
+						<span asp-validation-for="Password" class="text-danger"></span>
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-lock"></span>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<button type="submit" class="btn btn-primary btn-block" >Giriş Yap</button>
+						<a asp-action="Register" class="btn btn-secondary btn-block text-center mt-2">Kayıt Ol</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="~/Tema/plugins/jquery/jquery.min.js"></script>
+	<script src="~/Tema/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="~/Tema/dist/js/adminlte.min.js"></script>
+</body>
+</html>

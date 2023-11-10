@@ -1,9 +1,4 @@
 ﻿using FiftyShadesOfErrorList_DATA.Enum;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FiftyShadesOfErrorList_DATA.Abstract
 {

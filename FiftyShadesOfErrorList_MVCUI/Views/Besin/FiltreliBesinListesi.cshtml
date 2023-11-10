@@ -24,9 +24,7 @@
 			<th>
 				@Html.DisplayNameFor(model => model.Yag)
 			</th>
-			<th>Edit</th>
-			<th>Detail</th>
-			<th>Delete</th>
+			<th>İşlemler</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -55,13 +53,9 @@
 					@Html.DisplayFor(modelItem => item.Yag)
 				</td>
 				<td>
-					<a asp-action="BesinEkleDuzenle" asp-route-id="@item.Id" class="btn btn-warning"><i class="fa-regular fa-pen-to-square fa-xs"></i> Güncelle</a>
-				</td>
-				<td>
-					<a asp-action="Detay" asp-route-id="@item.Id" class="btn btn-secondary"><i class="fa-solid fa-info fa-xs"></i> Detay</a>
-				</td>
-				<td>
-					<a asp-action="Sil" asp-route-id="@item.Id" class="btn btn-danger"><i class="fa-regular fa-trash-can fa-xs"></i> Sil</a>
+					<a asp-action="BesinEkleDuzenle" asp-route-id="@item.Id" class="btn btn-warning" data-toggle="tooltip" title="Düzenle"><i class="fa-solid fa-pen-to-square"></i></a>
+					<a asp-action="Detay" asp-route-id="@item.Id" class="btn btn-secondary" data-toggle="tooltip" title="Detay Gör"><i class="fa-solid fa-circle-info"></i></a>
+					<a asp-action="Sil" asp-route-id="@item.Id" class="btn btn-danger" data-toggle="tooltip" title="Sil"><i class="fa-solid fa-trash-can"></i></a>
 				</td>
 			</tr>
 		}
