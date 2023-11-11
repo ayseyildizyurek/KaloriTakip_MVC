@@ -1,0 +1,45 @@
+﻿@model FiftyShadesOfErrorList_DATA.Entity.Kategori
+
+@{
+	bool isCreate = Model.Id == default;
+}
+
+@if (Model.Id == default)
+{
+	<h1 class="mt-3 text-center">Kategori Ekle</h1>
+}
+else
+{
+	<h1 class="mt-3 text-center">@Model.Ad Düzenle</h1>
+}
+
+<div class="modal-body">
+	<div class="row">
+		<form asp-action="KategoriEkleDuzenle">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<input asp-for="Ad" class="form-control" placeholder="Kategori Adı" />
+				<span asp-validation-for="Ad" class="text-danger"></span>
+			</div>
+
+			<div class="modal-footer justify-content-between">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+
+				@if (isCreate)
+				{
+					<input type="submit" value="Kaydet" class="btn btn-primary" asp-action="KategoriEkleDuzenle" />
+				}
+				else
+				{
+					<input type="submit" value="Güncelle" class="btn btn-warning" asp-action="KategoriEkleDuzenle" asp-route-id="@Model.Id"/>
+				}
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

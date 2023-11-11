@@ -1,0 +1,86 @@
+﻿@model FiftyShadesOfErrorList_MVCUI.Models.ViewModels.KategoriView
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<h1 class="mt-3 text-center">Kategori Listesi</h1>
+<hr />
+
+@if (TempData["bilgi"] != null)
+{
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+		@TempData["bilgi"]
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+}
+
+<div class="container form-container">
+	<div class="d-flex mb-3">
+		<div class="p-2">
+			<input type="text" id="kategoriFiltre" class="form-control " placeholder="Kategori Ara" />
+		</div>
+		<div class="ms-auto p-2">
+			<p>
+				<a type="button" class="btn btn-success" data-toggle="modal" data-target="#modalKategoriEkle" onclick="openKategoriModal()" data-toggle="tooltip" title="Yeni Kategori Ekle"><i class="fa-solid fa-square-plus"></i></a>
+			</p>
+		</div>
+	</div>
+
+	<div id="partialContent">
+		<partial name="~/Views/Kategori/FiltreliKategoriListesi.cshtml" model="Model.KategoriListe" />
+	</div>
+
+</div>
+
+<div class="modal fade" id="modalKategoriEkle">
+	<div class="modal-dialog">
+		<div class="modal-content" id="kategoriModalBody">
+			<partial name="~/Views/Kategori/KategoriEkleDuzenle.cshtml" model="Model.Kategori" />
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function () {
+		$('#kategoriFiltre').on('input', function () {
+			var filtre = $('#kategoriFiltre').val();
+			if (filtre.length > 2) {
+				$.ajax({
+					url: '/Kategori/FiltreliKategoriListesi',
+					type: 'POST',
+					data: { filtre: filtre },
+					success: function (data) {
+
+						$('#partialContent').html(data);
+					}
+				});
+			}
+			else if (filtre.length == 0) {
+				$.ajax({
+					url: '/Kategori/FiltreliKategoriListesi',
+					type: 'POST',
+					data: { filtre: null },
+					success: function (data) {
+
+						$('#partialContent').html(data);
+					}
+				});
+			}
+		});
+	});
+
+	function openKategoriModal(id) {
+		$.ajax({
+			url: '/Kategori/KategoriEkleDuzenle',
+			type: 'GET',
+			data: { id: id },
+			success: function (result) {
+				$('#kategoriModalBody').html(result);
+			},
+			error: function (error) {
+				console.log(error);
+			}
+		});
+	}
+
+</script>
+

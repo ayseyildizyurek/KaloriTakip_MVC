@@ -29,21 +29,21 @@
 					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 					<div class="input-group mb-3">
 						<input asp-for="Email" class="form-control" placeholder="Email" />
-						<span asp-validation-for="Email" class="text-danger"></span>
 						<div class="input-group-append">
 							<div class="input-group-text">
 								<span class="fas fa-envelope"></span>
 							</div>
 						</div>
 					</div>
+					<span asp-validation-for="Email" class="text-danger"></span>
 					<div class="input-group mb-3">
 						<input asp-for="Password" class="form-control" placeholder="Şifre" />
-						<span asp-validation-for="Password" class="text-danger"></span>
-						<div class="input-group-append">
 							<div class="input-group-text">
 								<span class="fas fa-lock"></span>
 							</div>
 						</div>
+					<span asp-validation-for="Password" class="text-danger"></span>
+					<div class="input-group-append">
 					</div>
 					<div class="row">
 						<button type="submit" class="btn btn-primary btn-block" >Giriş Yap</button>

@@ -32,8 +32,8 @@ namespace FiftyShadesOfErrorList_SERVICE.KategoriService
 
         public void Sil(Kategori kategori)
         {
-            BaseDAL<Kategori> baseDAL = new BaseDAL<Kategori>();
-            baseDAL.Sil(kategori);
+            KategoriDAL kategoriDAL = new KategoriDAL();
+            kategoriDAL.Sil(kategori);
         }
 
         public List<Kategori> TumunuGetir()

@@ -36,7 +36,7 @@
 			var filtre = $('#besinFiltre').val();
 			if (filtre.length > 2) {
 				$.ajax({
-					url: '/Besin/FiltreliBesinListesi', // Controller ve Action adınıza göre ayarlayın
+					url: '/Besin/FiltreliBesinListesi', 
 					type: 'POST',
 					data: { filtre: filtre },
 					success: function (data) {
@@ -47,7 +47,7 @@
 			}
 			else if (filtre.length == 0) {
 				$.ajax({
-					url: '/Besin/FiltreliBesinListesi', // Controller ve Action adınıza göre ayarlayın
+					url: '/Besin/FiltreliBesinListesi', 
 					type: 'POST',
 					data: { filtre: null },
 					success: function (data) {

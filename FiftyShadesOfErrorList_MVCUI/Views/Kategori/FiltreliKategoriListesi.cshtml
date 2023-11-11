@@ -1,0 +1,52 @@
+﻿@model IEnumerable<FiftyShadesOfErrorList_DATA.Entity.Kategori>
+
+<table id="dataTable" class=" table table-hover table-bordered">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.Ad)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.KayitTarihi)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.GuncellemeTarihi)
+			</th>
+			<th>İşlemler</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Ad)
+				</td>
+				<td>
+					@Convert.ToDateTime(item.KayitTarihi).ToShortDateString()
+				</td>
+				<td>
+					@Convert.ToDateTime(item.GuncellemeTarihi).ToShortDateString()
+				</td>
+				<td>
+					<a type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalKategoriEkle" onclick="openKategoriModal(@item.Id)" data-toggle="tooltip" title="Düzenle"><i class="fa-solid fa-pen-to-square"></i></a>
+					<a asp-action="Sil" asp-route-id="@item.Id" class="btn btn-danger" data-toggle="tooltip" title="Sil"><i class="fa-solid fa-trash-can"></i></a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<script>
+	$(document).ready(function () {
+		$('#dataTable').DataTable({
+			"paging": true,
+			"lengthChange": false,
+			"ordering": true,
+			"info": true,
+			"autoWidth": false,
+			"searching": false,
+		});
+	});
+
+</script>

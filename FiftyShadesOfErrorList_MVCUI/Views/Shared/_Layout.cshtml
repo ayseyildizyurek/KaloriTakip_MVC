@@ -7,12 +7,14 @@
 
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-	<link rel="stylesheet" href="~/PlakDukkaniMVCUI.styles.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/FiftyShadesOfErrorList_MVCUI.styles.css" asp-append-version="true" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 	<link rel="stylesheet" href="~/Tema/plugins/fontawesome-free/css/all.min.css">
 	<link rel="stylesheet" href="~/Tema/dist/css/adminlte.min.css">
 	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/Tema/plugins/select2/css/select2.min.css">
+	<link rel="stylesheet" href="~/Tema/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 
 	<style>
 		body {
@@ -26,9 +28,13 @@
 		.form-container {
 			background-color: #f2f2f2;
 			padding: 20px;
-			margin:auto;
+			margin: auto;
 			border-radius: 10px;
 			box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+		}
+
+		.select2-container--default .select2-selection--single{
+			height:40px !important;
 		}
 	</style>
 </head>
@@ -71,6 +77,22 @@
 								<i class="nav-icon fas fa-th"></i>
 								<p>
 									Besinler
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a asp-action="Index" asp-controller="Kategori" class="nav-link">
+								<i class="nav-icon fas fa-th"></i>
+								<p>
+									Kategoriler
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a asp-action="OgunEkle" asp-controller="AlinanBesin" class="nav-link">
+								<i class="nav-icon fas fa-th"></i>
+								<p>
+									Alınan Besin
 								</p>
 							</a>
 						</li>
@@ -144,5 +166,12 @@
 	<script src="~/Tema/dist/js/adminlte.min.js"></script>
 	<script src="https://kit.fontawesome.com/4323905c2d.js" crossorigin="anonymous"></script>
 	<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+	<script src="~/Tema/plugins/select2/js/select2.full.min.js"></script>
+	<script>
+		$(function () {
+			//Initialize Select2 Elements
+			$('.select2').select2()
+		})
+	</script>
 </body>
 </html>

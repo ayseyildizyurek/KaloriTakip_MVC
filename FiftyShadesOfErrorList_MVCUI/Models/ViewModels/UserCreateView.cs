@@ -7,12 +7,16 @@ namespace FiftyShadesOfErrorList_MVCUI.Models.ViewModels
 {
     public class UserCreateView
     {
-        [Required] 
+        [Required]
+        [StringLength(150,MinimumLength =2)]
         public string Ad { get; set; }
         [Required]
+        [StringLength(150, MinimumLength = 2)]
         public string Soyad { get; set; }
         [Display(Name = "E-posta")]
         [Required]
+        [StringLength(150, MinimumLength = 2)]
+        [EmailAddress]
         public string Email { get; set; }
         public Cinsiyet Cinsiyet { get; set; }
 

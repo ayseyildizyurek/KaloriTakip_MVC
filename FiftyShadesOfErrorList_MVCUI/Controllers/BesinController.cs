@@ -10,7 +10,6 @@ namespace FiftyShadesOfErrorList_MVCUI.Controllers
 	{
 		private readonly IBesinSERVICE besinSERVICE = new BesinSERVICE();
 		private readonly IKategoriSERVICE kategoriSERVICE = new KategorSERVICE();
-		List<Besin> besinListe = new List<Besin>();
 
 		public IActionResult Index()
 		{
@@ -19,7 +18,7 @@ namespace FiftyShadesOfErrorList_MVCUI.Controllers
 
 		public IActionResult FiltreliBesinListesi(string filtre)
 		{
-			besinListe = besinSERVICE.TumunuGetir();
+			List<Besin> besinListe = besinSERVICE.TumunuGetir();
 
 			if (filtre == null)
 			{
@@ -50,28 +49,28 @@ namespace FiftyShadesOfErrorList_MVCUI.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult BesinEkleDuzenle(Besin besin,int id = default)
+		public IActionResult BesinEkleDuzenle(Besin besin, int id = default)
 		{
-            if (id==default)
-            {
+			if (id == default)
+			{
 				besinSERVICE.Ekle(besin);
-                TempData["bilgi"] = "Besin başarıyla eklendi";
-            }
-            else
-            {
-				var guncellenecekBesin=besinSERVICE.IdyeGoreGetir(id);
-				guncellenecekBesin.Ad=besin.Ad;
-				guncellenecekBesin.Kalori=besin.Kalori;
-				guncellenecekBesin.Protein=besin.Protein;
-				guncellenecekBesin.Miktar=besin.Miktar;
-				guncellenecekBesin.Porsiyon=besin.Porsiyon;
-				guncellenecekBesin.Yag=besin.Yag;
-				guncellenecekBesin.Birim=besin.Birim;
-				guncellenecekBesin.Karbonhidrat=besin.Karbonhidrat;
-				guncellenecekBesin.KategoriId=besin.KategoriId;
+				TempData["bilgi"] = "Besin başarıyla eklendi";
+			}
+			else
+			{
+				var guncellenecekBesin = besinSERVICE.IdyeGoreGetir(id);
+				guncellenecekBesin.Ad = besin.Ad;
+				guncellenecekBesin.Kalori = besin.Kalori;
+				guncellenecekBesin.Protein = besin.Protein;
+				guncellenecekBesin.Miktar = besin.Miktar;
+				guncellenecekBesin.Porsiyon = besin.Porsiyon;
+				guncellenecekBesin.Yag = besin.Yag;
+				guncellenecekBesin.Birim = besin.Birim;
+				guncellenecekBesin.Karbonhidrat = besin.Karbonhidrat;
+				guncellenecekBesin.KategoriId = besin.KategoriId;
 				besinSERVICE.Guncelle(guncellenecekBesin);
-                TempData["bilgi"] = "Besin başarıyla güncellendi";
-            }
+				TempData["bilgi"] = "Besin başarıyla güncellendi";
+			}
 			return RedirectToAction("Index");
 		}
 
